@@ -8,7 +8,13 @@ import "./global.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Badge />
+    <Badge
+      firstName="Carlos Alberto"
+      lastName="Angel Angel"
+      avatar="https://www.gravatar.com/avatar?d=identicon"
+      jobTitle="Backend Engineer"
+      twitter="Charly_Angel_x2"
+    />
   </React.StrictMode>,
   document.getElementById("root")
 );
