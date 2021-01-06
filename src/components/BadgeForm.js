@@ -1,20 +1,6 @@
 import React from "react";
 
 class BadgeForm extends React.Component {
-  state = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    jobTitle: "",
-    twitter: ""
-  };
-
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
   handleClick = e => {
     console.log("Botton was clicked");
   };
@@ -34,56 +20,56 @@ class BadgeForm extends React.Component {
           <div className="form-group">
             <label htmlFor="firstName">First Name</label>
             <input
-              onChange={this.handleChange}
+              onChange={this.props.onChange}
               type="text"
               name="firstName"
               className="form-control"
               placeholder="First Name"
-              value={this.state.firstName}
+              value={this.props.formValues.firstName}
             />
           </div>
           <div className="form-group">
             <label htmlFor="lastName">Last Name</label>
             <input
-              onChange={this.handleChange}
+              onChange={this.props.onChange}
               type="text"
               name="lastName"
               className="form-control"
               placeholder="Last Name"
-              value={this.state.lastName}
+              value={this.props.formValues.lastName}
             />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
-              onChange={this.handleChange}
+              onChange={this.props.onChange}
               type="email"
               name="email"
               className="form-control"
               placeholder="email"
-              value={this.state.email}
+              value={this.props.formValues.email}
             />
           </div>
           <div className="form-group">
             <label htmlFor="jobTitle">Job Title</label>
             <input
-              onChange={this.handleChange}
+              onChange={this.props.onChange}
               type="text"
               name="jobTitle"
               className="form-control"
               placeholder="job title"
-              value={this.state.jobTitle}
+              value={this.props.formValues.jobTitle}
             />
           </div>
           <div className="form-group">
             <label htmlFor="twitter">Twitter</label>
             <input
-              onChange={this.handleChange}
+              onChange={this.props.onChange}
               type="text"
               name="twitter"
               className="form-control"
               placeholder="twitter"
-              value={this.state.twitter}
+              value={this.props.formValues.twitter}
             />
           </div>
           <button onClick={this.handleClick} className="btn btn-primary">
