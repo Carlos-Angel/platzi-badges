@@ -1,6 +1,6 @@
-import logo from "./logo.svg";
-import "./App.css";
-
-function App() {}
+import BadgeNew from "./pages/BadgeNew";
+function App() {
+  return <BadgeNew />;
+}
 
 export default App;

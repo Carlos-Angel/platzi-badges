@@ -1,20 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import Badge from "./components/Badge";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
 import "./global.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Badge
-      firstName="Carlos Alberto"
-      lastName="Angel Angel"
-      avatar="https://www.gravatar.com/avatar?d=identicon"
-      jobTitle="Backend Engineer"
-      twitter="Charly_Angel_x2"
-    />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
