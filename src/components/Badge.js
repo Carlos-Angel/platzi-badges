@@ -1,5 +1,5 @@
 import React from "react";
-
+import Gravatar from "./Gravatar";
 import "./styles/Badge.css";
 
 class Badge extends React.Component {
@@ -14,14 +14,7 @@ class Badge extends React.Component {
         </div>
 
         <div className="Badge__section-name">
-          <img
-            className="Badge__avatar"
-            src={
-              this.props.avatarUrl ||
-              "https://www.gravatar.com/avatar?d=identicon"
-            }
-            alt="Avatar"
-          />
+          <Gravatar estilo="Badge__avatar" email={this.props.email} />
           <h1>
             {this.props.firstName} <br /> {this.props.lastName}
           </h1>
