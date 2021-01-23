@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import api from "../api";
-
+import PageLoading from "../components/PageLoading";
 import BadgesList from "../components/BadgesList";
 import logo from "../assets/images/badge-header.svg";
 import "./styles/Badges.css";
+
 class Badges extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +32,7 @@ class Badges extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return "Loading...";
+      return <PageLoading />;
     }
     if (this.state.error) {
       return `Error: ${this.state.error.message}`;
