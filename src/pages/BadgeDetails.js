@@ -2,10 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Badge from "../components/Badge";
+import DeleteBadgeModal from "../components/DeleteBadgeModal";
 
 import "./styles/BadgeDetails.css";
 import confLogo from "../assets/images/platziconf-logo.svg";
-export default function BadgeDetails({ badge }) {
+export default function BadgeDetails({
+  badge,
+  onCloseModal,
+  onOpenModal,
+  onDeleteBadge,
+  modalIsOpen
+}) {
   return (
     <>
       <div className="BadgeDetails__hero">
@@ -45,7 +52,14 @@ export default function BadgeDetails({ badge }) {
               </div>
             </div>
             <div>
-              <button className="btn btn-danger">Delete</button>
+              <button onClick={onOpenModal} className="btn btn-danger">
+                Delete
+              </button>
+              <DeleteBadgeModal
+                isOpen={modalIsOpen}
+                onClose={onCloseModal}
+                onDeleteBadge={onDeleteBadge}
+              />
             </div>
           </div>
         </div>

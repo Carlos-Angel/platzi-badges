@@ -6,7 +6,7 @@ import PageError from "../components/PageError";
 import api from "../api";
 
 class BadgeDetailsContainer extends React.Component {
-  state = { loading: true, error: null, data: undefined };
+  state = { loading: true, error: null, data: undefined, modalIsOpen: false };
 
   componentDidMount() {
     this.fetchData();
@@ -22,6 +22,23 @@ class BadgeDetailsContainer extends React.Component {
     }
   };
 
+  handleOpenModal = e => {
+    this.setState({ modalIsOpen: true });
+  };
+  handleCloseModal = e => {
+    this.setState({ modalIsOpen: false });
+  };
+
+  handleDeleteBadge = async () => {
+    this.setState({ loading: true, error: null });
+    try {
+      await api.badges.remove(this.props.match.params.badgeId);
+      this.props.history.push("/badges");
+    } catch (error) {
+      this.setState({ loading: false, error });
+    }
+  };
+
   render() {
     if (this.state.loading) {
       return <PageLoading />;
@@ -29,7 +46,15 @@ class BadgeDetailsContainer extends React.Component {
       return <PageError />;
     }
 
-    return <BadgeDetails badge={this.state.data} />;
+    return (
+      <BadgeDetails
+        onCloseModal={this.handleCloseModal}
+        onOpenModal={this.handleOpenModal}
+        onDeleteBadge={this.handleDeleteBadge}
+        modalIsOpen={this.state.modalIsOpen}
+        badge={this.state.data}
+      />
+    );
   }
 }
 
