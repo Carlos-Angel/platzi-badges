@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Gravatar from './Gravatar';
 import './styles/Badge.css';
 
@@ -28,5 +29,13 @@ function Badge({ firstName, lastName, jobTitle, twitter, email }) {
     </div>
   );
 }
+
+Badge.propTypes = {
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  jobTitle: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  twitter: PropTypes.string.isRequired,
+};
 
 export default Badge;
